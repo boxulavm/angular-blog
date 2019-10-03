@@ -43,17 +43,13 @@ export class WorkingAreaComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.onAnimate()
-    }, 500);;
+    }, 500);
+    this.fetchPosts();
   }
 
 
   private onAnimate(){
     this.state = 'high';
-  }
-
-  // Click Event
-  onClick() {
-    this.fetchPosts();
   }
 
   // Sends GET Request To Server
@@ -64,12 +60,10 @@ export class WorkingAreaComponent implements OnInit {
       .then(response => response.json())
       .then(posts => {
         this.loadedPosts = [...posts.slice(0, 7)];
-        setTimeout(() => {
           this.loading = false;
           setTimeout(() => {
             this.postsState = 'high';
-          }, 100);
-        }, 1000);
+          }, 500);
       });
   }
 

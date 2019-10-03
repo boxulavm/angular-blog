@@ -1,8 +1,8 @@
 <div class="container my-5">
     <div class="text-center">
         <h1 [@fadeIn]="state" >{{ title }}</h1>
+        <p>data from <a class="text-info" href="https://jsonplaceholder.typicode.com/">https://jsonplaceholder.typicode.com/</a></p>
         <hr>
-        <button class="btn btn-outline-info px-5" (click)="onClick()">Get Posts</button>
     </div>
 
     
@@ -13,6 +13,7 @@
                     <li class="list-group-item bg-dark text- my-2" *ngFor='let post of loadedPosts'>
                         <h5>{{ post.title | uppercase}}</h5>
                         <p>{{ post.body }}.</p>
+                        <button [routerLink]="['/post', post.id]"  class="btn btn-outline-info">Full Post</button>
                     </li>
                 </ul>
 

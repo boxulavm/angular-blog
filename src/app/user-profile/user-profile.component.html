@@ -1,0 +1,27 @@
+<div class="container my-5">
+    <h2 class="mb-3">UserProfile</h2>
+
+    <!-- Loader -->
+    <div class="text-center" *ngIf='loading'>
+        <p>Loading...</p>
+        <app-loader></app-loader>
+    </div>
+
+    <ul *ngIf='!loading' class="list-group" >
+            <li class="list-group-item bg-dark text- my-2">
+                <h3><small class="text-info">Username: </small> {{ User.name }}</h3>
+            </li>
+            <li class="list-group-item bg-dark text- my-2">
+                <h4><small class="text-info">Email: </small> {{ User.email }}</h4>
+            </li>
+            <li class="list-group-item bg-dark text- my-2">
+                <h4><small class="text-info">Phone: </small> {{ User.phone }}</h4>
+            </li>
+            <li class="list-group-item bg-dark text- my-2">
+                    <h4><small class="text-info">Website: </small> {{ User.website }}</h4>
+            </li>
+    </ul>
+
+    <button [routerLink]="['/']"  class="btn btn-outline-info my-3">Back</button>
+    
+</div>
